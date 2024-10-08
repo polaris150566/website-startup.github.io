@@ -1,0 +1,11 @@
+!import style from "./logo.lmss"
+!data { style }
+!import actions from "./actions"
+!methods { ...actions }
+>div#self
+    #id ={{style.logo}}
+    @click = draglogo
+    -placeforlogo
+    >div#son
+    >a
+        #href = {{ href }}

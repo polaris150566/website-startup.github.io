@@ -1,0 +1,112 @@
+:root{
+	--width--:150px;
+	--height--:150px;
+}
+.right{
+	width:75px;
+	height:75px;
+	position:fixed;
+	right:20px;
+	top:25px;
+	border-radius: 100%;;
+	background: url('./src.jpg');
+	background-position: center;
+	background-size: contain;
+	z-index: 1000;
+	
+	@keyframes sensor_rotate {
+		0%{
+			transform: translateX(10px) rotateZ(0deg);
+		}
+		50%{
+			transform: translateX(-10px) rotateZ(180deg);
+		}
+		100%{
+			transform: translateX(10px) rotateZ(360deg);
+		}
+	}
+	& img{
+		@img_size:170%;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top:0;
+		left:0;
+		transition: linear;
+		transform: translateX(10px);
+
+		&:first-of-type{
+			width: @img_size;
+			height: @img_size;
+			top:calc(50% - @img_size * 0.5);
+			left:calc(50% - @img_size * 0.5);
+		}
+		&:nth-of-type(2){
+			width: @img_size;
+			height: @img_size;
+			top:calc(50% - @img_size * 0.5);
+			left:calc(50% - @img_size * 0.5);
+		}
+		&:nth-of-type(3){
+			width: @img_size;
+			height: @img_size;
+			top:calc(50% - @img_size * 0.5);
+			left:calc(50% - @img_size * 0.5);
+		}
+	}
+	&:hover{
+		box-shadow: 1px 1px 3px white;
+		& img{
+			&:first-of-type{
+				animation: sensor_rotate 10s linear 0s infinite ;
+			}
+			&:nth-of-type(2){
+				animation: sensor_rotate 7s linear 0s infinite ;
+			}
+			&:nth-of-type(3){
+				animation: sensor_rotate 17s linear 0s infinite ;
+			}
+		}
+	}
+}
+.navigation {
+	position:fixed;
+	top:30px;
+	right:50px;
+	width:80%;
+	transform: scaleX(0);
+	transform-origin: right;
+	transition: 0.3s linear;
+	min-height: 50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	background:url('./src05.png');
+	background-position: bottom;
+	background-repeat: no-repeat;
+	background-size: 100% 70%;
+	flex-wrap: wrap;
+	z-index: 200;
+	border-radius: 25px;
+}
+.left{
+	position:fixed;
+	top:0;
+	left:0;
+	z-index: 1000;
+}
+// .circle{
+// 	position:absolute;
+// 	border-radius: 50%;
+// 	width:var(--width--);
+// 	height:var(--height--);
+// 	left:-5px;
+// 	top:-70px;
+// 	background-color: white;
+// 	border:2px solid black;
+// 	z-index: 100;
+// }
+// .shortname{
+// 	z-index: 2;
+// }

@@ -1,0 +1,11 @@
+!import names from "./nav_block.lmss"
+!data { names }
+!import actions from "./actions"
+!methods { ...actions }
+>a.{{ names.nav_block }}#self
+	.{{ text }}
+	@click = drag
+	>div.{{ names.sub }}#sub
+		style = transform: scale(0.1,0.1);
+		clickonce = antidrag
+		+list

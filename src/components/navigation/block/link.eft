@@ -1,0 +1,5 @@
+>a
+	.{{ text }}
+	#href = {{ href }}
+	#style = scaleY:1
+	style = transform: translateY( calc( -100% * {{ n = 0 }} ))

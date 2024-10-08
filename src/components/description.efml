@@ -1,0 +1,10 @@
+!import style from "./description.lmss"
+!data { style }
+>div.{{style.descri}}
+	>h3.{{style.title}}
+		.Genetically modified EcN targets TME, inhibiting VEGF to suppress tumor growth.
+	>p.{{style.para}}
+
+>div.{{style.description}}
+	>p.{{style.paragraph}}
+		.One of the major challenges in the treatment of solid tumors arises from the immunosuppressive nature of the surrounding tumor microenvironment（TME）, which weakens the immune system's cytotoxic ability. Currently, therapeutic strategies targeting the solid tumor microenvironment have gained extensive attention, while most existing treatments still confront with challenges such as off-target risks. Our team has noticed that harmless Escherichia coli Nissle 1917(EcN) can automatically colonize the tumor microenvironment, demonstrating excellent targeting potential. Therefore, we plan to utilize the angiogenesis mechanism driven by vascular endothelial growth factorin （VEGF）in the human body. We plan to genetically modified EcN to express VEGF competitive binding receptors under ideal conditions of TME and conduct a surface display in ECN. By integrating and consuming VEGF in the tumor microenvironment, we plan to reduce its concentration in the TME, thereby effectively inhibiting angiogenesis in tumor areas and ultimately suppress tumor proliferation. This strategy provides a new approach to solid tumor therapy and illustrate the potential of engineered bacteria in cancer treatment.

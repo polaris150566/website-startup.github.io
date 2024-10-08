@@ -1,0 +1,4 @@
+!import names from "./index.lmss"
+import '@fortawesome/fontawesome-free/css/all.css';
+!data { names }
+>div.{{ names.markdown }}#self

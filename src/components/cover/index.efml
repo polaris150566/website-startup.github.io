@@ -1,0 +1,59 @@
+!import style from "./index.lmss"
+!import actions from "./actions"
+!import goingalong from './cover'
+!data { style }
+!methods { ...actions,...goingalong}
+//这和文件会在根目录下被装上去
+
+>div.{{ style.cover }}
+	#id = cover
+>div.{{style.title}}#title
+	#id = title
+	@click.stop = slideUp
+	>h3
+		.The
+	>h3
+		.VBatin
+>div.{{style.innercontent}}
+	>div.{{style.s}}.{{style.s1}}#s1
+		#id = s1
+		>p
+			.Tomorrow and accident in the end which one will come first?
+		-cards
+	>div.{{style.s}}.{{style.s2}}
+		#id = s2
+		>div.{{style.therapy}}
+			+therapy
+	>div.{{style.s}}.{{style.s3}}
+		#id = s3
+		>p.{{style.vp1}}
+			.So to....
+		>p.{{style.vp2}}
+			.We come up with
+		>p.{{style.vp3}}
+			.Vbatin!
+	>div.{{style.s}}.{{style.s4}}#s4
+		#id = s4
+		>p
+			>span
+				.V 
+			.is for VEGF
+		>div.{{style.s4svg}}#s4svg
+	>div.{{style.s}}.{{style.s5}}#s5
+		#id = s5
+		>p
+			>span
+				.B
+			>br
+			.is for 
+		>div.{{style.s5svg}}#s5svg
+	>div.{{style.s}}.{{style.s6}}
+		#id = s6
+		>footer
+>div.{{style.suspend}}#suspend
+	#id = suspend
+	@click.stop = null
+	>button
+		@click.stop = suspend_close
+* >div.{{style.movcomp}}
+* 	@wheel = goingalong

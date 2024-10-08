@@ -1,0 +1,549 @@
+@font-face {
+	font-family: 'RusticShine-EalOz';
+	src: url('src/RusticShine-EalOz.ttf') format('truetype');
+}
+header > a:first-child {
+	position: sticky;
+	flex: none;
+	top: 0;
+	z-index: 10;
+}
+header {
+	position: relative;
+	z-index: 2;
+}
+body {
+	background-color: antiquewhite !important;
+	overflow: hidden;
+}
+
+/* 整个滚动条 */
+::-webkit-scrollbar {
+	width: 10px; /* 水平滚动条的高度、垂直滚动条的宽度 */
+	height: 10px; /* 水平滚动条的高度 */
+  }
+  /* 滚动条轨道 */
+  ::-webkit-scrollbar-track {
+	background: #f1f1f1; /* 轨道颜色 */
+  }
+  /* 滚动条滑块 */
+  ::-webkit-scrollbar-thumb {
+	background: #888; /* 滑块颜色 */
+  }
+  /* 滑块hover效果 */
+  ::-webkit-scrollbar-thumb:hover {
+	background: #555; /* 滑块hover颜色 */
+	width: 14px;
+  }
+@bookwidth:100%;//innercontent的长宽
+@bookheight:100vh;
+
+.cover {
+	position: absolute;
+	top: 0;
+
+	height: 100vh;
+	width: 100vw;
+
+	background: url('./src01.png');
+	background-position: center;
+	background-size: 100% 100%;
+	transform: scaleY(1);
+	transform-origin: top;
+	z-index: 30;
+}
+.title{
+	width:100%;
+	height: 100vh;
+	background-color: rgba(0,0,0,0.1);
+
+
+	position: absolute;
+	top:0;
+
+	transform: scaleY(1);
+	transform-origin: top;
+	z-index: 100;
+	@keyframes shine{
+		0%{
+			text-shadow: 5px 5px 20px rgba(255, 254, 205,0.8);
+		}
+		50%{
+			text-shadow: 0px 0px 10px rgba(255, 254, 205,0.5);
+		}
+		100%{
+			text-shadow: 5px 5px 20px rgba(255, 254, 205,0.8);
+		}
+	}
+	& h3{
+		width:100%;
+		height:100px;
+		margin: 0;
+
+		text-align: center;
+		letter-spacing: 30px; /* 增加字母间距为2像素 */
+		font-size: 220px;
+		//font-style: italic;
+		font-weight: 500;
+		font-family: 'RusticShine-EalOz';
+		color: rgb(255,255,255);
+		animation: shine 2s linear infinite ;
+		&:first-of-type{
+			position: relative;
+			top:170px;
+			left:-15%;
+		}
+		&:last-of-type{
+			position: relative;
+			top:300px;
+			left:0;
+		}
+	}
+}
+
+.innercontent{
+	position:absolute;
+	top: 0;
+	left:0;
+
+	width:@bookwidth;
+	height:@bookheight;
+
+	overflow-x: hidden;
+	overflow-y: hidden;
+	scroll-behavior: smooth;
+
+	transition: 0.5s linear;
+	background-color: transparent;
+	.s{
+		width:100%;
+		height:100vh;
+		transition: linear 0.5s;
+		scroll-behavior: smooth;
+		overflow: hidden;
+	}
+	#s1,.s1{
+		// position:absolute;
+		// top:0;
+		width:100%;
+		background-color: rgb(254,222,197);
+	}
+	#s2,.s2{
+		// position: absolute;
+		// top:100vh;
+		width:100%;
+		background-color:rgb(254,200,197);
+	}
+	#s3,.s3{
+		position: relative;
+		// top:100vh;
+		width:100%;
+		height: 100%;
+		background-color: rgb(254,250,197);
+		&>p{
+			display: block;
+			position: absolute;
+			font-family: 'Times New Roman', Times, serif;
+			font-weight: bolder;
+			font-size: 40px;
+			color: navy;
+			&:first-of-type{
+				color: antiquewhite;
+			}
+			opacity: 0;//为接下来的动画做准备
+		}
+		& .vp1{
+			top:100px;
+			left:100px;
+			font-size: 50px;
+		}
+		& .vp2{
+			top:300px;
+			left:300px;
+		}
+		& .vp3{
+			top: 500px;
+			left:250px;
+		}
+	}
+	#s4,.s4{
+		position: relative;
+		width:100%;
+		height: 100%;
+		background-color: rgb(254,220,150);
+		&>p{
+			position: relative;
+			top:100px;
+			left:50px;
+			font-size: 60px;
+			color: navy;
+			font-family: 'RusticShine-EalOz';
+			font-style: italic;
+			letter-spacing: 5px;
+			text-decoration: solid;
+			font-weight: bolder;
+			& span{
+				font-size: 100px;
+				color: blueviolet;
+			}
+		}
+		&>.s4svg{
+			width:550px;
+			height: 500px;
+			position: absolute;
+			bottom: 100px;
+			right: 100px;
+		}
+	}
+	#s5,.s5{
+		position: relative;
+		width:100%;
+		height: 100%;
+		background-color: rgb(255, 241, 179);
+		&>p{
+			position: absolute;
+			top:100px;
+			right:50px;
+			font-size: 60px;
+			color: rgb(151, 193, 192);
+			font-family: 'RusticShine-EalOz';
+			font-style: italic;
+			letter-spacing: 5px;
+			text-decoration: solid;
+			font-weight: bolder;
+			& span{
+				font-size: 100px;
+				color: rgb(80,106,132);
+			}
+		}
+		&>.s5svg{
+			width:550px;
+			height: 500px;
+			position: absolute;
+			bottom: 100px;
+			left: 100px;
+		}
+	}
+	#s6,.s6{
+		position: relative;
+		// top:100vh;
+		width:100%;
+		height: 100%;
+		background-color: rgb(254,250,150);
+		&>footer{
+			width:100%;
+			height:300px;
+			background-color: rgba(0,0,0,0.1);
+			position: absolute;
+			bottom: 0;
+		}
+	}
+}
+.cards_container{
+	width:100%;
+	height:600px;
+	// background-color: rgba(0,0,0,0.1);
+	position:relative;
+	z-index: 50;
+}
+.cards{
+	width:200px;
+	height:300px;
+	background-color: aqua;
+	border:2px solid black;
+	border-radius: 10px;
+	position:absolute;
+	top:50px;
+	left:calc(50% - 100px);
+	transition:linear 0.4s;
+	box-shadow: 2px 2px 1px black;
+}
+.front,.back{
+    position:absolute;
+    height:300px;
+    width:200px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    transform-style:preserve-3d;
+    transition: .4s ease-in-out;
+}
+.front{
+    background-color: rgba(254,201,133,1);
+    background-size: 100% 100%;
+    backface-visibility: hidden;
+}
+.back{
+    background-color: rgb(244,152,129);
+    background-size: 100% 100%;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+.contents{
+    transform: translateZ(50px);
+    backface-visibility: hidden;
+    width:100%;
+    box-sizing: border-box;
+    padding:20px;
+    word-wrap: normal;
+    text-align: center;
+}
+.front_active{
+    transform: rotateY(-180deg);
+}
+.back_active{
+    transform: rotateY(0deg);
+}
+p{
+    text-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+h2{
+    text-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+//-----以上为卡片效果——————————————————————————
+
+.therapy{
+	width:100%;
+	height:300px;
+	position:inherit;
+	background-color: rgba(0,0,0,0.1);
+	backface-visibility: blur(15px);
+	display: flex;
+	flex-wrap: wrap;
+	padding:20px;
+	gap:20px;
+}
+.subtherapy{
+	width:150px;
+	height:150px;
+	background-color: rgba(255,255,255,0.5);
+	flex:1;
+	& p{
+		text-align: center;
+		font-style: italic;
+		font-family: 'Times New Roman', Times, serif;
+	}
+	&:hover{
+		box-shadow: 2px 2px 1px black;
+	}
+}
+
+.suspend{
+	position:fixed;
+	width:90%;
+	left:5%;
+	top:100px;
+	height:600px;
+	border-radius: 10px;
+	border:2px solid black;
+	background-color: rgba(255,255,255,0.7);
+	z-index:70 ;
+	transition: linear 0.5s;
+	transform: translateY(50px);
+	opacity: 0.1;
+
+	display: none;
+	&>button{
+		@buttonwidth:20%;
+		position: absolute;
+		bottom:30px;
+		width: @buttonwidth;
+		left:calc(50% - @buttonwidth);
+		height:25px;
+		background-image: linear-gradient(60deg,#00aaaa,#00aaff 100%);
+		border:none;
+		font-size: 18px;
+		font-family: 'Times New Roman', Times, serif;
+		border-radius: 10%;
+		margin:20px 70px;
+		&:active{
+			box-shadow: 2px 2px 2px black;
+		}
+		&:hover{
+			box-shadow: 1px 1px 1px black;
+		}
+	}
+}
+
+		// &  .container{//就是id是book那个
+		// 	height:@bookheight !important;
+		// 	width:@bookwidth;
+		// 	.pcover{
+		// 		width:50% !important;
+		// 		height:@bookheight !important;
+		// 		min-width: 300px;
+		// 		background: wheat;
+		// 		background-image: url('https://bpic.51yuansu.com/pic/cover/00/18/71/57b19e4ede6a9_610.jpg');
+		// 		&>.picture1{
+		// 			width:100%;
+		// 			height:100%;
+		// 			background: url('./01.jpg');
+		// 			background-size: 100% 100%;
+		// 			background-repeat: no-repeat;
+		// 		}
+		// 	}
+		// 	.page{//不能用&，挂在之前识别不到本体，挂在之后识别不到上级，两头都识别不到
+		// 		width:50% !important;
+		// 		min-width: 300px;
+		// 		height: @bookheight !important;
+		// 		background: burlywood;
+		// 		background-image: url('https://bpic.51yuansu.com/pic/cover/00/18/71/57b19e4ede6a9_610.jpg');
+		// 		//background-image: url('');
+		// 		//background-repeat: no-repeat;
+		// 		//background-size: contain;
+		// 		&>p{//控制页面段落
+		// 			width:100%;
+		// 			height:200px;
+		// 			padding:30px;
+		// 			box-sizing: border-box;
+		// 			font-family:'Times New Roman', Times, serif;
+		// 			color: maroon;
+		// 			font-size: 20px;
+		// 			line-height: 40px;
+		// 			font-weight: bolder;
+		// 			text-shadow: 1px 1px black;
+		// 		}
+		// 		&>.picture2{
+		// 			width:100%;
+		// 			height:100%;
+		// 			background: url('./02.jpg');
+		// 			background-repeat: no-repeat;
+		// 			background-size: 85%;
+		// 			background-position: center;
+		// 		}
+		// 	}
+		// }
+		
+// @media screen and (min-width: 800px) and (max-width: 1200px) {
+// 	@bookwidth:100%;
+// 	@bookheight:100vh;
+// 	.innercontent{
+// 		position:relative;
+// 		left:calc(50% - 0.5*@bookwidth);
+// 		top: 20px;
+// 		width:@bookwidth;
+// 		height:@bookheight;
+// 		//background:linear-gradient(#c3b715,#a6a648);
+// 		&> .container{//就是id是book那个
+// 			width:@bookwidth!important;
+// 			height:@bookheight !important;
+// 			width:100%;
+// 			.pcover{
+// 				width:100%;
+// 				top:0 !important;
+// 				height:@bookheight !important;
+// 				min-width: 300px;
+// 				background: wheat;
+// 				background-image: url('https://bpic.51yuansu.com/pic/cover/00/18/71/57b19e4ede6a9_610.jpg');
+// 				&>.picture1{
+// 					width:100%;
+// 					height:100%;
+// 					background: url('./01.jpg');
+// 					background-size: 100% 100%;
+// 					background-repeat: no-repeat;
+// 				}
+// 			}
+// 			.page{//不能用&，挂在之前识别不到本体，挂在之后识别不到上级，两头都识别不到
+// 				top:0 !important;
+// 				width:50% !important;
+// 				min-width: 300px;
+// 				height: @bookheight !important;
+// 				background: burlywood;
+// 				background-image: url('https://bpic.51yuansu.com/pic/cover/00/18/71/57b19e4ede6a9_610.jpg');
+// 				//background-image: url('');
+// 				//background-repeat: no-repeat;
+// 				//background-size: contain;
+// 				&>p{//控制页面段落
+// 					width:100%;
+// 					height:200px;
+// 					padding:30px;
+// 					box-sizing: border-box;
+// 					font-family:'Times New Roman', Times, serif;
+// 					color: maroon;
+// 					font-size: 20px;
+// 					line-height: 40px;
+// 					font-weight: bolder;
+// 					text-shadow: 1px 1px black;
+// 				}
+// 				&>.picture2{
+// 					width:100%;
+// 					height:100%;
+// 					background: url('./02.jpg');
+// 					background-repeat: no-repeat;
+// 					background-size: 85%;
+// 					background-position: center;
+// 				}
+// 			}
+// 		}
+		
+// 	}
+// }
+// @media screen and (max-width: 800px) {
+// 	@bookwidth:500px;
+// 	@bookheight:600px;
+// 	.innercontent{
+// 		position:relative;
+// 		left:calc(50% - 0.5*@bookwidth);
+// 		top: 20px;
+// 		width:@bookwidth;
+// 		height:@bookheight;
+// 		//background:linear-gradient(#c3b715,#a6a648);
+// 		display: flex;
+// 		flex-direction: column;
+// 		align-items: center;
+// 		justify-content: space-around;
+// 		&> .container{//就是id是book那个
+// 			height:800px;
+// 			width:100%;
+// 			.pcover{
+// 				width:100%;
+// 				height:@bookheight !important;
+// 				min-width: 300px;
+// 				background: wheat;
+// 				background-image: url('https://bpic.51yuansu.com/pic/cover/00/18/71/57b19e4ede6a9_610.jpg');
+// 				&>.picture1{
+// 					width:100%;
+// 					height:100%;
+// 					background: url('./01.jpg');
+// 					background-size: 100% 100%;
+// 					background-repeat: no-repeat;
+// 				}
+// 			}
+// 			.page{//不能用&，挂在之前识别不到本体，挂在之后识别不到上级，两头都识别不到
+// 				width:80%;
+// 				min-width: 300px;
+// 				height: @bookheight !important;
+// 				background: burlywood;
+// 				background-image: url('https://bpic.51yuansu.com/pic/cover/00/18/71/57b19e4ede6a9_610.jpg');
+// 				//background-image: url('');
+// 				//background-repeat: no-repeat;
+// 				//background-size: contain;
+// 				&>p{//控制页面段落
+// 					width:100%;
+// 					height:200px;
+// 					padding:30px;
+// 					box-sizing: border-box;
+// 					font-family:'Times New Roman', Times, serif;
+// 					color: maroon;
+// 					font-size: 20px;
+// 					line-height: 40px;
+// 					font-weight: bolder;
+// 					text-shadow: 1px 1px black;
+// 				}
+// 				&>.picture2{
+// 					width:100%;
+// 					height:100%;
+// 					background: url('./02.jpg');
+// 					background-repeat: no-repeat;
+// 					background-size: 85%;
+// 					background-position: center;
+// 				}
+// 			}
+// 		}
+		
+// 	}
+// }
+
+

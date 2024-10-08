@@ -1,0 +1,16 @@
+image: node:lts-hydrogen
+
+stages:
+  - build
+
+pages:
+  stage: build
+  script:
+    - yarn
+    - yarn run produce
+  artifacts:
+    paths:
+      - public/
+  only:
+    - main
+    - master

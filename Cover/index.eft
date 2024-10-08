@@ -1,0 +1,19 @@
+!import style from "./index.lmss"
+!import center from "./engineer_center.png"
+!import cover from "./engineer_cover.png"
+!import fade from "./fade"
+!data { style, cover, center }
+!methods { fade }
+>div.{{ style.cover }}
+	#style = display: {{ display = 'block' }};
+	>h3
+		#style = opacity: {{ opacity1 = 1 }};
+		.{{title}}
+	>img
+		#src = {{ cover }}
+		#style = opacity: {{ opacity2 = 1 }};
+	>img#center
+		#src = {{ center }}
+	@click.once = fade
+	@wheel.stop.once = fade
+>div.{{style.background}}

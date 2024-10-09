@@ -2,7 +2,25 @@
 !import actions from "./actions"
 !data { style }
 !methods { ...actions}
-//这和文件会在根目录下被装上去
 
 >div.{{style.frontpage}}
+>div.{{style.frongpagemasking}}
+	>p
+		.Welcome for 
+	>p
+		.website beginners!
 >div.{{style.innercontent}}
+	>div.{{style.s1}}
+		>div.{{style.s1left}}
+			>p
+				.Why to start?
+		>div.{{style.s1right}}
+			>div
+			>div
+			>div
+			>div
+	>div.{{style.s2}}
+		>div.{{style.s2left}}
+
+		>div.{{style.s2right}}
+			. Whatever your goal, this guide will be your stepping stone to success. We'll walk you through the basics, and before you know it, you'll be bending the web to your will.

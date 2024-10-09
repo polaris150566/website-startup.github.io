@@ -12,47 +12,179 @@ header {
 body {
 	background-color: antiquewhite !important;
 }
-
-/* 整个滚动条 */
 ::-webkit-scrollbar {
-	width: 10px; /* 水平滚动条的高度、垂直滚动条的宽度 */
-	height: 10px; /* 水平滚动条的高度 */
-  }
-  /* 滚动条轨道 */
-  ::-webkit-scrollbar-track {
-	background: #f1f1f1; /* 轨道颜色 */
-  }
-  /* 滚动条滑块 */
-  ::-webkit-scrollbar-thumb {
-	background: #888; /* 滑块颜色 */
-  }
-  /* 滑块hover效果 */
-  ::-webkit-scrollbar-thumb:hover {
-	background: #555; /* 滑块hover颜色 */
-	width: 14px;
-  }
-@bookwidth:100%;//innercontent的长宽
-@bookheight:2500px;
-.frontpage{
-	width: 100%;
-	height: 400px;
-	background-color: #00aaff;
+width: 10px;
+height: 10px;
 }
-.innercontent{
-	width:@bookwidth;
-	height:@bookheight;
-	scroll-behavior: smooth;
+::-webkit-scrollbar-track {
+background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+background: #888; /* 滑块颜色 */
+}
+/* 滑块hover效果 */
+::-webkit-scrollbar-thumb:hover {
+background: #555; /* 滑块hover颜色 */
+width: 14px;
+}
 
+
+
+.frontpage,.frongpagemasking{
+	width: 100%;
+	height: 500px;
+	background-color: transparent;
+}
+.frontpage{
+	background-image: url('./frontpage.png');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.frongpagemasking{
+	position: absolute;
+	top:100px;
+	left: 0;
+	background-color: rgba(0,0,0,0.3);
+	&>p{
+		font-size: 60px;
+		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		font-weight: bolder;
+		color: white;
+		text-shadow: 3px 3px 0px black;
+		&::selection{
+			color: black;
+			background-color: wheat;
+			text-shadow: none;
+		}
+		&:first-of-type{
+			position: absolute;
+			left: 200px;
+			top: 100px;
+		}
+		&:nth-of-type(2){
+			margin-bottom: 0;
+			position: absolute;
+			bottom: 150px;
+			right: 200px;
+		}
+	}
+}
+
+@innercontentwidth:100%;
+@innercontentheight:2500px;
+.innercontent{
+	width:@innercontentwidth;
+	height:@innercontentheight;
+	scroll-behavior: smooth;
 	transition: 0.5s linear;
 	background-color: transparent;
-	.s{
+	position: relative;
+	.s1{
 		width:100%;
 		height:100vh;
 		transition: linear 0.5s;
-		scroll-behavior: smooth;
-		overflow: hidden;
+		background-color: #333;
+		&>.s1left{
+			position: absolute;
+			top:100px;
+			left: 5%;
+			width:45%;
+			height: 400px;
+
+			padding:20px;
+			&>p{
+				position: relative;
+				font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+				font-weight: bolder;
+				color: white;
+				text-shadow: 3px 3px 0px black;
+				font-size: 40px;
+				letter-spacing: 2px;
+				width:300px;
+				text-align: center;
+				height:max-content;
+				&::after {
+					content: '';
+					position: absolute;
+					bottom: -5px;
+					width: 50%; /* 根据需要调整宽度 */
+					height: 2px; /* 边框的高度 */
+					background-color: rgb(255, 0, 85); /* 边框颜色 */
+					border-radius: 100%;
+					left: 50%;
+					transform: translateX(-50%);
+				}
+			}
+		}
+		&>.s1right{
+			position: absolute;
+			top:100px;
+			right:5%;
+			width:35%;
+			min-width: 400px;
+			height: 400px;
+			background-color: rgba(255,255,255,0.3);
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			
+			&>div{
+				width:150px;
+				height: 130px;
+				background-color: rgba(255,255,255,0.3);
+				margin:15px;
+				&:first-of-type{
+					background-image: url('./s101.png');
+					background-position: center;
+					background-size: cover;
+				}
+				&:nth-of-type(2){
+					background-image: url('./s102.jpeg');
+					background-position: center;
+					background-size: cover;
+				}
+			}
+		}
+
 	}
-	
+	.s2{
+		width:100%;
+		height: 90vh;
+		border-top: rgb(255, 0, 85) 2px solid;
+		border-bottom: rgb(255, 0, 85) 2px solid;
+		background-color: #333333f5;
+
+		position: relative;
+		&>.s2left{
+			width:35%;
+			height: 60%;
+			position: absolute;
+			top:20%;
+			left:50px;
+			background-color: rgba(255,255,255,0.3);
+		}
+		&>.s2right{
+			width:55%;
+			height: 60%;
+			position: absolute;
+			top:20%;
+			right:50px;
+			// background-color: rgba(255,255,255,0.3);
+			padding: 20px;
+			text-indent: 40px;
+			box-sizing: border-box;
+
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			font-weight: bolder;
+			color: white;
+			text-shadow: 1px 1px 0px black;
+			font-size: 30px;
+			letter-spacing: 1px;
+		}
+	}
 }
 .suspend{
 	position:fixed;

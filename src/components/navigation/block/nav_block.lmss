@@ -1,8 +1,5 @@
 // //该文件用来给links添加效果
-@font-face {
-	font-family: 'RusticShine-EalOz';
-	src: url('src/RusticShine-EalOz.ttf') format('truetype');
-}
+
 .nav_block {//这个是外面的a
 	flex:1;
 	z-index: 9;

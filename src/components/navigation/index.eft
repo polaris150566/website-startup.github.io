@@ -1,28 +1,10 @@
 !import names from "./index.lmss"
-!import src02 from "./src02.png"
-!import src03 from "./src03.png"
-!import src04 from "./src04.png"
-!data { names, src02, src03, src04 }
+!data { names }
 !import actions from "./action"
 !methods { ...actions}
->div.{{names.left}}
-	-logo
->div.{{names.right}}#navsensor
-	#id = navigation_sensor
-	@click.stop = navigation_toggle
-	点击之后导航栏伸出来，阻止事件冒泡
-	>img
-		#src = {{src02}}
-	>img
-		#src = {{src03}}
-	>img
-		#src = {{src03}}
-	>img
-		菜单标识
-		#src = {{src04}}
+
 >div.{{ names.navigation }}
 	#id = navigation_self
-	@click.stop = null
-	div.{{names.circle}}
-	div.{{names.shortname}}#shortname
-	+topics
+	>div.{{names.topnav}}
+	>div.{{names.subnav}}
+		+topics

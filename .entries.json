@@ -3,7 +3,8 @@
 		"index": "./src/index.js",
 		"home": "./src/home.js",
 		"members":"./src/basic/basic.js",
-		"katex-css": "katex/dist/katex.css"
+		"katex-css": "katex/dist/katex.css",
+		"navigation":"./src/components/navigation"
 	},
 	"pages": [
 		{

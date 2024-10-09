@@ -33,32 +33,9 @@ export default {
 		} );
 
 	},
-	// antidrag( { state } ){ //用于拖拽小标题
-	// 	//console.log(state);
-	// 	//state.$refs.self.classList.remove( "cursorBlind" );
-	// 	console.log( state );
-	// 	if ( !state.$refs.sub.contains( state ) ){
-
-	// 		//console.log('Clicked outside of the element!');
-	// 		anime( {
-	// 			targets   : 'a>div>a',
-	// 			scaleX    : 1,
-	// 			translateY: -100,
-	// 			duration  : 1000,
-	// 			easing    : 'easeOutElastic(1, .8)',
-	// 			loop      : false
-	// 		} );
-	// 	}
-	// },
-
 	draglogo( { state } ){ //用于logo的拖拽
 		console.log( state );
 		state.$refs.self.classList.add( "cursorBlind" );
-		// anime( {
-		// 	targets   : state.$refs.self,
-		// 	translateY: `calc( 50px * ${ state.list.length } )`,
-		// 	duration  : 500,
-		// 	easing    : "easeInOutExpo"
-		// } );
+
 	}
 };

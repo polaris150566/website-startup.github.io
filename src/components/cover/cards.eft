@@ -1,0 +1,8 @@
+!import style from "./index.lmss"
+!import actions from "./actions"
+!data { style }
+!methods { ...actions}
+>div.{{style.cards}}#self
+    >div.{{style.circle}}
+    >p
+        .{{text}}

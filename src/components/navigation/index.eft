@@ -1,10 +1,15 @@
 !import names from "./index.lmss"
-!data { names }
+!import logo from './logo.png'
+!data { names, logo }
 !import actions from "./action"
 !methods { ...actions}
 
 >div.{{ names.navigation }}
 	#id = navigation_self
 	>div.{{names.topnav}}
+		>img
+			#src = {{logo}}
+		>span
+			.University of Science and Technology of China
 	>div.{{names.subnav}}
 		+topics

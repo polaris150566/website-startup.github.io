@@ -24,3 +24,14 @@
 
 		>div.{{style.s2right}}
 			. Whatever your goal, this guide will be your stepping stone to success. We'll walk you through the basics, and before you know it, you'll be bending the web to your will.
+	>div.{{style.s3}}
+		>p
+			.After the training you can get:
+		>div
+			+cardslist
+	>div.{{style.s4}}
+		>p
+			.Come and join us!
+	>div.{{style.s5}}
+		>p
+			.click to explore more

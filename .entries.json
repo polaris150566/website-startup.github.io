@@ -2,7 +2,7 @@
 	"entries": {
 		"index": "./src/index.js",
 		"home": "./src/home.js",
-		"members":"./src/basic/basic.js",
+		"members":"./src/basic/basicgrammar.js",
 		"katex-css": "katex/dist/katex.css",
 		"navigation":"./src/components/navigation"
 	},
@@ -12,9 +12,51 @@
 			"chunks": [ "index","navigation" ]
 		},
 		{
-			"location": "basic",
-			"chunks": [ "basic","navigation" ],
+			"location": "basicgrammar",
+			"chunks": [ "basicgrammar","navigation" ],
 			"topic": "basic"
+		},
+		{
+			"location": "class",
+			"chunks": [ "class","navigation" ],
+			"topic": "basic"
+		},
+		{
+			"location": "git",
+			"chunks": [ "git-gitlab","navigation" ],
+			"topic": "basic"
+		},
+		{
+			"location": "efjs",
+			"chunks": [ "efjs","navigation" ],
+			"topic": "advanced"
+		},
+		{
+			"location": "node",
+			"chunks": [ "node","navigation" ],
+			"topic": "advanced"
 		}
+		,
+		{
+			"location": "webpack",
+			"chunks": [ "webpack","navigation" ],
+			"topic": "advanced"
+		},
+		{
+			"location": "markdown",
+			"chunks": [ "markdown","navigation" ],
+			"topic": "advanced"
+		},
+		{
+			"location": "styles",
+			"chunks": [ "styles","navigation" ],
+			"topic": "styles & components"
+		},
+		{
+			"location": "components",
+			"chunks": [ "components","navigation" ],
+			"topic": "styles & components"
+		}
+
 	]
 }

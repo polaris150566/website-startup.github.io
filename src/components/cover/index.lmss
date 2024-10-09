@@ -155,7 +155,10 @@ width: 14px;
 		height: 90vh;
 		border-top: rgb(255, 0, 85) 2px solid;
 		border-bottom: rgb(255, 0, 85) 2px solid;
-		background-color: #333333f5;
+		margin: 0;
+		background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('./s201.jpeg');;
+		background-size: cover;
+		background-position: center;
 
 		position: relative;
 		&>.s2left{
@@ -183,6 +186,39 @@ width: 14px;
 			text-shadow: 1px 1px 0px black;
 			font-size: 30px;
 			letter-spacing: 1px;
+		}
+	}
+	.s3{
+		width:100%;
+		height: 600px;
+		position: relative;
+		margin:0;
+		background-color: #333;
+		&>p{
+			padding:50px 0;
+			box-sizing: border-box;
+			width:100%;
+			text-align: center;
+			margin:0;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			font-weight: bolder;
+			color: white;
+			text-shadow: 1px 1px 0px navy;
+			font-size: 35px;
+			letter-spacing: 2px;
+		}
+		&>div{
+			position: absolute;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-around;
+			width:90%;
+			min-width: 900px;
+			height: 80%;
+			left: 5%;
+			top:100px;
+			
 		}
 	}
 }
@@ -220,5 +256,20 @@ width: 14px;
 		&:hover{
 			box-shadow: 1px 1px 1px black;
 		}
+	}
+}
+.cards{
+	position: relative;
+	width:300px;
+	height: 400px;
+	background-color: #f1f1f1;
+	&>p{
+		box-sizing: border-box;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 70%;
+		padding:20px;
 	}
 }

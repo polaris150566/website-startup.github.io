@@ -11,14 +11,40 @@ body{
 	box-shadow: 1px 1px 1px black;
 	background-color: rgba(0,0,0,0.9);
 	z-index: 200;
+
+	
+	;
 	& .topnav{
-		background-color: rgba(255,255,255,0.5);
 		height: @subnavheight;
 		width: 100%;
 		position: relative;
+
+		
+		&>span{
+			color: white;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			font-weight: 200;
+			letter-spacing: 2px;
+			z-index: 201;
+			vertical-align: top;
+			font-size: 20px;
+			line-height: 50px;
+		}
+		&>img{
+			position: relative;
+			height: 100px;
+			width:100px;
+			z-index: 201;
+			margin:0 10px;
+		}
+		
 	}
 	& .subnav{
 		height: @subnavheight;
+		width: 100%;
+		position: relative;
 		background-color: rgba(0,0,0,0.9);
+		display: flex;
+
 	}
 }

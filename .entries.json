@@ -2,17 +2,8 @@
 	"entries": {
 		"index": "./src/index.js",
 		"home": "./src/home.js",
-		"members":"./src/team/members.js",
-		"attributions":"./src/team/attributions.js",
-		"description":"./src/project/description.js",
-		"future":"./src/project/future.js",
-		"contribution":"./src/project/contribution.js",
-		"navigation": "./src/components/navigation",
-		"protocols":"./src/wetlab/protocols.js",
-		"katex-css": "katex/dist/katex.css",
-		"notebook":"./src/wetlab/notebook.js",
-		"model":"./src/drylab/model.js",
-		"engineersuccess":"./src/wetlab/engineer.js"
+		"members":"./src/basic/basic.js",
+		"katex-css": "katex/dist/katex.css"
 	},
 	"pages": [
 		{
@@ -20,74 +11,9 @@
 			"chunks": [ "index","navigation" ]
 		},
 		{
-			"location": "members",
-			"chunks": [ "members","navigation" ],
-			"topic": "Team"
-		},
-		{
-			"location": "attributions",
-			"chunks": [ "attributions","navigation" ],
-			"topic": "Team"
-		},
-		{
-			"location": "description",
-			"chunks": [ "description", "navigation" ],
-			"topic": "Project"
-		},
-		{
-			"location": "future",
-			"chunks": [ "future","navigation" ],
-			"topic": "Project"
-		},
-		{
-			"location": "implementation",
-			"chunks": ["navigation"],
-			"topic": "Project"
-		},
-		{
-			"location": "contribution",
-			"chunks": [ "contribution" ],
-			"topic": "Project"
-		},
-		{
-			"location": "safety",
-			"chunks": ["navigation"],
-			"topic": "Project"
-		},
-		{
-			"location": "human-practises",
-			"chunks": ["navigation"],
-			"topic": "human-practises"
-		},
-		{
-			"location": "education",
-			"chunks": ["navigation"],
-			"topic": "human-practises"
-		},
-		{
-			"location": "parts",
-			"chunks": [],
-			"topic": "Wet Lab"
-		},
-		{
-			"location": "protocols",
-			"chunks": ["protocols","navigation","katex-css"],
-			"topic": "Wet Lab"
-		},
-		{
-			"location": "notebook",
-			"chunks": ["notebook","navigation", "katex-css"],
-			"topic": "Wet Lab"
-		},
-		{
-			"location": "engineering",
-			"chunks": ["engineersuccess","navigation","katex-css"],
-			"topic": "Wet Lab"
-		},
-		{
-			"location": "model",
-			"chunks": ["model","navigation"],
-			"topic": "Dry Lab"
+			"location": "basic",
+			"chunks": [ "basic","navigation" ],
+			"topic": "basic"
 		}
 	]
 }

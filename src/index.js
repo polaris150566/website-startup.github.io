@@ -33,12 +33,6 @@ coverT.$mount( {
 document.addEventListener( 'click', ( event ) => {
 	coverT.switchDown();
 } );
-
-
-import loading from './loading/loading.js';//开始的loading界面
-
-loading();
-
 // document.getElementById('cards_container').addEventListener('mouseenter',function(){
 
 // })

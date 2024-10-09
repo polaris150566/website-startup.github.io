@@ -1,12 +1,17 @@
 !import names from "./index.lmss"
 !import logo from './logo.png'
-!data { names, logo }
+!import home from './home.png'
+!data { names, logo, home }
 !import actions from "./action"
 !methods { ...actions}
 
 >div.{{ names.navigation }}
 	#id = navigation_self
 	>div.{{names.topnav}}
+		>a
+			#href = {{url}}
+			>img
+				#src = {{home}}
 		>img
 			#src = {{logo}}
 		>span

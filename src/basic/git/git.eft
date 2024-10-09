@@ -1,4 +1,4 @@
-!import style from "./basicgrammar.lmss"
+!import style from "./git.lmss"
 !import actions from "./action"
 !data { style }
 !methods { ...actions}
@@ -7,6 +7,6 @@
         .Basic Grammar
 >div.{{style.innercontent}}
     >div.{{style.left}}
-        +basicgrammar_menu
+        +git_menu
     >div.{{style.right}}
-        +basicgrammar_content
+        +git_content

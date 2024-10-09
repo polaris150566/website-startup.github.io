@@ -10,7 +10,7 @@ body{
     position: absolute;
     top:50px;
     left: 0;
-    background-image: linear-gradient(180deg,transparent,rgba(255,255,255,1)) ,url('./basicgrammarfront.jpg');
+    background-image: linear-gradient(180deg,transparent,rgba(255,255,255,1)) ,url('./gitfront.jpg');
     background-size: cover;
     background-position: center;
     &>h3{

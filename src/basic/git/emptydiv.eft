@@ -1,0 +1,6 @@
+!import style from "./git.lmss"
+!data { style }
+!import action from "./action.js"
+!methods { ...action }
+>div.{{style.div}}#self
+    -content

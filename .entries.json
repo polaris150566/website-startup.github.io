@@ -5,7 +5,8 @@
 		"basicgrammar":"./src/basic/basicgrammar",
 		"class":"./src/basic/class/class.js",
 		"katex-css": "katex/dist/katex.css",
-		"navigation":"./src/components/navigation"
+		"navigation":"./src/components/navigation",
+		"gitgitlab":"./src/basic/git"
 	},
 	"pages": [
 		{
@@ -24,7 +25,7 @@
 		},
 		{
 			"location": "git",
-			"chunks": [ "git-gitlab","navigation" ],
+			"chunks": [ "gitgitlab","navigation" ],
 			"topic": "basic"
 		},
 		{
@@ -57,6 +58,16 @@
 			"location": "components",
 			"chunks": [ "components","navigation" ],
 			"topic": "styles & components"
+		},
+		{
+			"location": "iGEM officials",
+			"chunks": [ "officials","navigation" ],
+			"topic": "time arrangement"
+		},
+		{
+			"location": "Art design",
+			"chunks": [ "art","navigation" ],
+			"topic": "time arrangement"
 		}
 
 	]

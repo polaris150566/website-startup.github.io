@@ -1,0 +1,9 @@
+!import style from "../git.lmss"
+!data { style }
+!import actions from "../action.js"
+!methods {...actions}
+>div.{{style._topic}}#self
+    @click = scrollintoview
+    >p
+        .{{topic}}
+    +subtopics

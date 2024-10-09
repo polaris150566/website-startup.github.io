@@ -1,4 +1,4 @@
-## 2024 igem wiki base
+# 2024 igem wiki base
 
 ### npm commands
 ```shell-script

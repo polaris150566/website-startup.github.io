@@ -1,0 +1,4 @@
+!import style from "../basicgrammar.lmss"
+!data { style }
+>p.{{style._subtopic}}
+    .{{text}}

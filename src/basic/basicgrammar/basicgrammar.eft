@@ -1,0 +1,10 @@
+!import style from "./basicgrammar.lmss"
+!import actions from "./action"
+!data { style }
+!methods { ...actions}
+>div.{{style.frontpage}}
+>div.{{style.innercontent}}
+    >div.{{style.left}}
+        +basicgrammar_menu
+    >div.{{style.right}}
+        +basicgrammar_content

@@ -1,4 +1,5 @@
-const { renderToString } = require( "katex" );
+import katex from "katex";
+const { renderToString } = katex;
 function division( a, b ){
 	return ( a - a % b ) / b;
 }
@@ -16,10 +17,13 @@ function breakstr( str, breaker ){
 
 class formatError extends Error{
 
-	constructor( received, format ){
+	constructor( received, format, index, text, uib ){
 		super( `expect format ${ format }, received ${ received }` );
 		this.received = received;
 		this.format   = format;
+		this.index    = index;
+		this.text     = text;
+		this.uib      = uib;
 	}
 }
 class timeFormatError extends formatError{
@@ -41,6 +45,8 @@ function parseTime( time ){
 		if( time.search( /~/ ) !== 10 )
 			throw new timeFormatError( time, 1 );
 		return time;
+	case 0:
+		return "";
 	default:
 		throw new timeFormatError( time, 2 );
 	}
@@ -55,7 +61,7 @@ function encodeText( text ){
 		"^": "b"
 	};
 
-	const state = [ ...text ].reduce( function( state, char ){
+	const state = [ ...text ].reduce( function( state, char, index ){
 
 		if( state.escape )
 			return {
@@ -100,13 +106,15 @@ function encodeText( text ){
 					state.uib.push( char );
 					return {
 						...state,
-						current: `${ state.current }<${ uibmap[char] }>`
+						cached: `${ state.cached }${ state.current }</${ uibmap[char] }>`,
+						current: ""
 					};
 				} else {
 					state.uib.pop();
 					return {
 						...state,
-						current: `${ state.current }</${ uibmap[char] }>`
+						cached: `${ state.cached }${ state.current }</${ uibmap[char] }>`,
+						current: ""
 					};
 				}
 
@@ -124,14 +132,15 @@ function encodeText( text ){
 	} );
 
 	if( state.uib.length )
-		throw new formatError( `unmatched ${ state.uib }`, "`_`,`*`,`^` to be matched" );
+		throw new formatError( `unmatched ${ state.uib }`, "`_`,`*`,`^` to be matched", text.length - state.current.length, text, state.uib );
 	if( state.math )
-		throw new formatError( "otherwise", "`$` to be enclosed" );
+		throw new formatError( "otherwise", "`$` to be enclosed", text.length - state.current.length, text );
 	return state.cached + state.current;
 
 }
 
-const { camelCase } = require( "camel-case" );
+// const { camelCase } = require( "camel-case" );
+import { camelCase } from "camel-case";
 
 function parseLine( line ){
 
@@ -182,9 +191,12 @@ class counter{
 
 	count( n ){
 
-		if( n > this.level + 1 )
-			throw new Error( "unexpected extra indent" );
-
+		if( n > this.level + 1 ){
+			throw new Error( `unexpected extra indent the indent is${n},but expacted not exceeding ${this.level}` );
+			// this.array[ this.level = n ] = 1;
+			// return this;
+		}
+			
 		switch( n ){
 		case this.level + 1:
 			this.array[ ++this.level ] = 1;
@@ -207,96 +219,99 @@ class counter{
 	}
 }
 
-module.exports = function parse( source ){
+import chalk from "chalk";
+function mark( position ){
+	return (" ".repeat( position - 2 ) + chalk.red("---^---") + "\n\there the environment led by this symbol is not enclosed, or it has an embedded environment not enclosed");
+}
+
+export default function parse( source ){
 	const state = {
 		images: "",
 		doc   : [],
 	};
-
+	const structure = []
 	const subtitle = new counter;
-
-	return "export default" + JSON.stringify( source.split( /\n|\r|\n\r/g ).map( function( line, index ){
-
+	let i = 0;
+	source.split( /\r\n|\n\r|\n|\r/g ).forEach( function( line, index ){
 		if( !line )
 			return;
-
 		let result;
 		try {
 			result = parseLine( line );
 		} catch( error ){
 			if( error instanceof formatError )
 				if( error instanceof timeFormatError )
-					throw console.error( `unexpected time format error:\n\tat line ${ 1+index }, expect format ${ error.format }, received ${ error.received }` )
-					?? error;
+					throw new Error( 
+`unexpected ${ chalk.yellow("time format error") }:
+	at line ${ 1+index }, expect format ${ error.format }, received ${ error.received }
+	note: the origin line was
+${ 1+index }| ${ line }
+` );
 				else
-					throw console.error( `unexpected unmatched environment:\n\t at line ${ 1+index }, ${
-						error.received !== "otherwise" ? error.received.match( /unmatched (.)/ )[1] : "`$`" } not enclosed` )
-					?? error;
+					throw new Error( 
+`unexpected ${ chalk.yellow("unmatched environment") }:
+	at line ${ chalk.green(1+index) }, \`${ error.uib.at(-1) ?? "$" }\` not enclosed
+	note: working on the text
+${ chalk.green(1+index) }| ${ error.text }
+${ mark( (1+index).toString().length + error.index ) }
+` );
 			else throw error;
 		}
 
-		return result;
+		switch( result.type ){
+		case "image":
+			state.images += `import _${ result.name } from "${ result.path }";\nconst ${ result.name } = imagePath( _${result.name} );\n`;
+			state.doc.push( `<div class="\${names.image}">
+				<img src="${
+					result.name.endsWith("Svg") ?
+						`data:image/svg+xmk,` : ""
+				}\${${ result.name }}" />
+				<span>${ result.caption }</span>
+			</div>` );
+			break;
+		case "title":
+			state.doc.push( `<div class="\${names.title}"  data-id="${i}">
+				<h2>${ result.content }</h2>
+				<span>${ result.time }</span>
+			</div>` );
+			structure.push({
+				'id':i,
+				'title':result.content,
+				'subtitle':[]
+			})
+			break;
+		case "subtitle":
+			subtitle.count( result.indent );
+			state.doc.push( `<div class="\${names.subtitle}">${
+				`<span class="\${names.subtitle} \${names.indent}"></span>`.repeat( result.indent )
+			}<span class="\${names.subtitle} \${names.enumerate}">${ subtitle }</span>
+			${ result.content }</div>` );
+			if(result.indent == 0){
+				structure[structure.length-1]['subtitle'].push(result.content)
+			}
+			
+			break;
+		default:
+			state.doc.push( `<div class="\${names.plain}">
+				${ `<span class="\${names.plain} \${names.indent}"></span>`.repeat( result.indent ) }
+				<div>${ result.content }</div>
+			</div>` );
+		}
+	} );
 
-		// switch( result.type ){
-		// case "image":
-		// 	state.images += `import ${ result.name } from "${ result.path }";\n`;
-		// 	state.doc.push( `<div class="\${names.image}">
-		// 		<img src="\${${ result.name }}" />
-		// 		<span>${ result.caption }</span>
-		// 	</div>` );
-		// 	break;
-		// case "title":
-		// 	state.doc.push( `<div class="\${names.title}">
-		// 		<h2>${ result.content }</h2>
-		// 		<span><i class="fas fa-clock"></i>${ result.time }</span>
-		// 	</div>` );
-		// 	break;
-		// case "subtitle":
-		// 	subtitle.count( result.indent );
-		// 	state.doc.push( `<div class="\${names.subtitle}">${
-		// 		`<span class="\${names.subtitle} \${names.indent}"></span>`.repeat( result.indent )
-		// 	}<span class="\${names.subtitle} \${names.enumerate}">${ subtitle }</span>
-		// 	${ result.content }</div>` );
-		// 	break;
-		// default:
-		// 	state.doc.push( `<div class="\${names.plain}">
-		// 		${ `<span class="\${names.plain} \${names.indent}"></span>`.repeat( result.indent ) }
-		// 		${ result.content }
-		// 	</div>` );
-		// }
-	} ).filter( _ => _ ) );
-
-	// console.log( state );
-
-	// return `
-	// import template from "components/markdown";
-	// const element = new template;
-	// export default element;
-	// import names from "components/markdown/index.lmss";
-	// ${ state.images }
-	// element.$refs.self.innerHTML = \`
-	// ${ state.doc.join( "" ) }
-	// \`
-	// `;
-
+	return `
+	import template from "components/markdown";
+	const element = new template;
+	import { imagePath } from "utils/fetch";
+	
+	import names from "components/markdown/index.lmss";
+	${ state.images }
+	element.$refs.self.innerHTML = \`
+	${ state.doc.join( "" ) }
+	\`
+	const stru = ${JSON.stringify(structure)}
+	
+	export default element
+	export {element, stru};
+	`;
 };
-
-// const header = `
-// import template from "components/markdown";
-// const element = new template;
-// import names from "components/markdown/index.lmss";
-// `;
-
-// test case
-// console.log( module.exports(`
-// #abc#2024-09-08
-// lorem ipsum
-// +lorem ipsum
-//     lorem ipsum
-//     +lorem ipsum
-// 	    +lorem ipsum
-//     +^lorem ipsum^
-// test
-// +lorem ipsum
-// ![./test.png](test figure caption)
-// `) )

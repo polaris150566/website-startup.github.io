@@ -2,7 +2,8 @@
 	"entries": {
 		"index": "./src/index.js",
 		"home": "./src/home.js",
-		"members":"./src/basic/basicgrammar.js",
+		"basicgrammar":"./src/basic/basicgrammar",
+		"class":"./src/basic/class/class.js",
 		"katex-css": "katex/dist/katex.css",
 		"navigation":"./src/components/navigation"
 	},

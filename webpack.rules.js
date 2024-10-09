@@ -1,22 +1,13 @@
 const { loader } = require("mini-css-extract-plugin");
 module.exports = [
-	// {
-	// 	test: /native_modules[/\\].+\.node$/,
-	// 	use: "node-loader"
-	// },
-	// {
-	// 	test: /[/\\]node_modules[/\\].+\.(m?js|node)$/,
-	// 	parser: { amd: false },
-	// 	use: {
-	// 		loader: '@vercel/webpack-asset-relocator-loader',
-	// 		options: {
-	// 			outputAssetBase: 'native_modules',
-	// 		},
-	// 	},
-	// },
+
 	{
 		test  : /\.md$/,
 		loader: "./src/utils/loaders/markdown-loader/loader.js"
+	},
+	{
+		test  : /\.mdc$/,
+		loader: "./src/utils/loaders/markdown-loader/loaderComplete.mjs"
 	},
 	{
 		test  : /\.tex$/,

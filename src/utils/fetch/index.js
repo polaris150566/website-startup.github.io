@@ -13,10 +13,10 @@ export function image( url, options, errHandler = id ){
 	).then( _ => _.ok ? _.blob() : errHandler( _ ) );
 }
 
-import path from "./A.png"; 
+//import path from "./A.png"; 
 // https://2024.igem.wiki/ustc/images/A.png
 
-const realpath = imagePath( path );
+// const realpath = imagePath( path );
 // https://tools.igem.org/teams/5302/A.png
 export function imagePath( url ){
 	return url.replace( /2024.igem.wiki\/ustc\//g, "tools.igem.wiki/teams/5302/"  )

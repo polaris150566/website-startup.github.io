@@ -1,9 +1,0 @@
-!import style from "./index.lmss"
-!data { style }
-!import actions from "./actions"
-!methods { ...actions}
->div.{{style.cards_container}}#self
-    #id = cards_container
-    mouseenter.stop = show
-    mouseleave= antishow
-    +cardslist

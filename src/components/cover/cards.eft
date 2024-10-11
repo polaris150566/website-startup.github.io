@@ -4,5 +4,6 @@
 !methods { ...actions}
 >div.{{style.cards}}#self
     >div.{{style.circle}}
+    
     >p
         .{{text}}

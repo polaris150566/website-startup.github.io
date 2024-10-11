@@ -4,7 +4,7 @@
 !methods { ...actions}
 
 >div.{{style.frontpage}}
->div.{{style.frongpagemasking}}
+>div.{{style.frontpagemasking}}
 	>p
 		.Welcome for 
 	>p
@@ -16,9 +16,29 @@
 				.Why to start?
 		>div.{{style.s1right}}
 			>div
+				>div.{{style.s1svg}}
+				>h6
+					.programming?
+				>p
+					.To improve programming skills?
 			>div
+				>div.{{style.s1svg}}
+				>h6
+					.programming?
+				>p
+					.To improve programming skills?
 			>div
+				>div.{{style.s1svg}}
+				>h6
+					.programming?
+				>p
+					.To improve programming skills?
 			>div
+				>div.{{style.s1svg}}
+				>h6
+					.Art?
+				>p
+					. Learn website art design?
 	>div.{{style.s2}}
 		>div.{{style.s2left}}
 
@@ -35,3 +55,12 @@
 	>div.{{style.s5}}
 		>p
 			.click to explore more
+		>div
+			>p
+				.basic
+			>p
+				.advanced
+			>p
+				.styles
+			>p
+				.time arrangement

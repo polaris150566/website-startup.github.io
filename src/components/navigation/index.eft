@@ -8,13 +8,14 @@
 >div.{{ names.navigation }}
 	#id = navigation_self
 	>div.{{names.topnav}}
-		>a
-			#href = {{url}}
-			>img
-				#src = {{home}}
+		
 		>img
 			#src = {{logo}}
 		>span
 			.University of Science and Technology of China
 	>div.{{names.subnav}}
+		>a.{{names.home}}
+			#href = {{url}}
+			>img
+				#src = {{home}}
 		+topics

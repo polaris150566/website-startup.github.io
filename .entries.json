@@ -52,22 +52,22 @@
 		{
 			"location": "styles",
 			"chunks": [ "styles","navigation" ],
-			"topic": "styles & components"
+			"topic": "styles"
 		},
 		{
 			"location": "components",
 			"chunks": [ "components","navigation" ],
-			"topic": "styles & components"
+			"topic": "styles"
 		},
 		{
-			"location": "iGEM officials",
+			"location": "officials",
 			"chunks": [ "officials","navigation" ],
-			"topic": "time arrangement"
+			"topic": "timeArrangement"
 		},
 		{
-			"location": "Art design",
+			"location": "art",
 			"chunks": [ "art","navigation" ],
-			"topic": "time arrangement"
+			"topic": "timeArrangement"
 		}
 
 	]

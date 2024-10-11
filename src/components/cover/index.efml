@@ -24,26 +24,26 @@
 			>div
 				>div.{{style.s1svg}}
 				>h6
-					.programming?
-				>p
-					.To improve programming skills?
-			>div
-				>div.{{style.s1svg}}
-				>h6
-					.programming?
-				>p
-					.To improve programming skills?
-			>div
-				>div.{{style.s1svg}}
-				>h6
 					.Art?
 				>p
-					. Learn website art design?
+					.Learn website art design?
+			>div
+				>div.{{style.s1svg}}
+				>h6
+					.hobby?
+				>p
+					.To obtain another hobby or interest?
+			>div
+				>div.{{style.s1svg}}
+				>h6
+					.other reason?
+				>p
+					. interesting!
 	>div.{{style.s2}}
 		>div.{{style.s2left}}
 
 		>div.{{style.s2right}}
-			. Whatever your goal, this guide will be your stepping stone to success. We'll walk you through the basics, and before you know it, you'll be bending the web to your will.
+			. Whatever your goal, this guide will be your stepping stone to success. We'll walk you through the basic knowledges, advanced programming,and finally conduct your own website.The progrss could be tough, but we believe you have the energy to go through it!
 	>div.{{style.s3}}
 		>p
 			.After the training you can get:
@@ -54,13 +54,18 @@
 			.Come and join us!
 	>div.{{style.s5}}
 		>p
-			.click to explore more
-		>div
+			.click to explore more!
+		>div.{{style.div}}
 			>p
-				.basic
+				.· basic grammar
+				@click = basic
 			>p
-				.advanced
+				.· advanced knowledge
+				@click = advanced
 			>p
-				.styles
+				.· styles / components
+				@click = styles
 			>p
-				.time arrangement
+				.· time arrangement
+				@click = timeArrangement
+		-suspend

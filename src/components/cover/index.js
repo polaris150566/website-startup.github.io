@@ -11,6 +11,7 @@ import s104 from './s104.svg'
 let s3svgs = [s301,s302,s303];
 let s1svgs = [s101,s102,s103,s104];
 
+
 const s3array = [
 	{text:'A basic understanding of website principles'},
 	{text:'A better command of insight into programming concept'},

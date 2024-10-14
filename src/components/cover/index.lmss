@@ -11,6 +11,7 @@ header {
 }
 body {
 	background-color: antiquewhite !important;
+	height: max-content !important;
 	overflow-x: hidden;
 }
 ::-webkit-scrollbar {
@@ -84,7 +85,7 @@ width: 14px;
 @innercontentheight:2500px;
 .innercontent{
 	width:@innercontentwidth;
-	height:@innercontentheight;
+	height:max-content;
 	scroll-behavior: smooth;
 	transition: 0.5s linear;
 	background-color: transparent;
@@ -216,6 +217,11 @@ width: 14px;
 			background-repeat: no-repeat;
 		}
 		&>.s2right{
+			&::selection{
+				background-color: white;
+				color: rgb(61, 192, 244);
+				text-shadow: none;
+			}
 			width:55%;
 			height: 60%;
 			position: absolute;
@@ -241,7 +247,12 @@ width: 14px;
 		position: relative;
 		margin:0;
 		background-color: #333;
+		
 		&>p{
+			&::selection{
+				background-color: white;
+				color: black;
+			}
 			padding:50px 0;
 			box-sizing: border-box;
 			width:100%;
@@ -255,6 +266,7 @@ width: 14px;
 			letter-spacing: 2px;
 		}
 		&>div{
+			
 			position: absolute;
 			display: flex;
 			flex-direction: row;
@@ -304,7 +316,8 @@ width: 14px;
 		background-position: center;
 		background-size: cover;
 		background-repeat: no-repeat;
-		&>p{position: absolute;
+		&>p{
+			position: absolute;
 			top:calc(50% - 35px);
 			left: 0;
 			padding:50px 0;
@@ -335,6 +348,11 @@ width: 14px;
 				margin: 0px 0px;
 				transform-origin: left;
 				transition: 0.5s linear;
+				&::selection{
+					background-color: wheat;
+					color: black;
+					box-shadow: none;
+				}
 				&:hover{
 					color: antiquewhite;
 					letter-spacing: 3px;
@@ -373,22 +391,30 @@ width: 14px;
 	z-index:7 ;
 	padding: 20px 0;
 	overflow: hidden;
+	&::selection{
+		background-color: wheat;
+		color: black;
+		text-shadow: none;
+	}
 	&>h4{
 		width:200px;
-		font-size: 30px;
+		font-size: 35px;
 		color: white;
 		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-		letter-spacing: 1px;
+		letter-spacing: 2px;
 		box-sizing: border-box;
 		margin:5px 0;
+		height: 60px;
 	}
 	& ul{
 		width:400px;
 		color: white;
 		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		transform: translateX(20px);
 		& li{
 			margin: 2px 0;
 			transition: 0.5s linear;
+			height: 50px;;
 			&>a{
 				font-size: 20px;
 				color:white;
@@ -411,6 +437,7 @@ width: 14px;
 	border-radius: 5px;
 	box-shadow: 2px 2px 3px black;
 	background-color: #f1f1f1;
+	
 	&>.circle{
 		border-radius: 100%;
 		background-color: black;
@@ -441,5 +468,9 @@ width: 14px;
 		font-size: 25px;
 		text-shadow: 1px 1px 0 gray;
 		text-align: center;
+		&::selection{
+			background-color: black;
+			color: white;
+		}
 	}
 }

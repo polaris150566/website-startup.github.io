@@ -6,21 +6,22 @@
 		"class":"./src/basic/class/class.js",
 		"katex-css": "katex/dist/katex.css",
 		"navigation":"./src/components/navigation",
-		"gitgitlab":"./src/basic/git"
+		"gitgitlab":"./src/basic/git",
+		"footer":"./src/components/footer"
 	},
 	"pages": [
 		{
 			"location": "index",
-			"chunks": [ "index","navigation" ]
+			"chunks": [ "index","navigation","footer" ]
 		},
 		{
 			"location": "basicgrammar",
-			"chunks": [ "basicgrammar","navigation" ],
+			"chunks": [ "basicgrammar","navigation","footer"  ],
 			"topic": "basic"
 		},
 		{
 			"location": "class",
-			"chunks": [ "class","navigation" ],
+			"chunks": [ "class","navigation","footer"  ],
 			"topic": "basic"
 		},
 		{

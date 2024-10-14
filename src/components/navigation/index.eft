@@ -1,5 +1,5 @@
 !import names from "./index.lmss"
-!import logo from './logo.png'
+!import logo from './coverlogo.png'
 !import home from './home.png'
 !data { names, logo, home }
 !import actions from "./action"

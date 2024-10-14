@@ -1,0 +1,20 @@
+!import style from './footer.lmss'
+!data { style }
+>div.{{style.footer}}
+    >div.{{style.top}}
+        >div.{{style.left}}
+            >h4
+                .useful links
+        >div.{{style.middle}}
+            >h4
+                .contact
+            >p
+                .CTY email: polaris150566@mail.ustc.edu.cn
+        >div.{{style.right}}
+            >h4
+                .about
+            >div.{{style.svg1}}#svg1
+            >div#svg2
+    >div.{{style.bottom}}
+        
+    
